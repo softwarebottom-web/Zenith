@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Login | Zenith</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+    <div class="auth-box">
+        <div class="logo" style="margin-bottom:30px; font-size:1.5rem;">ZENITH<span>ASSET</span></div>
+        
+        <div id="login-area">
+            <h3>Student Login</h3>
+            <input type="email" id="logEmail" placeholder="Email Address">
+            <input type="password" id="logPass" placeholder="Password">
+            <button class="btn-auth" onclick="handleLogin()">MASUK</button>
+            <p style="margin-top:20px; font-size:13px;">Belum punya akun? <span style="color:var(--primary); cursor:pointer;" onclick="document.getElementById('login-area').style.display='none'; document.getElementById('reg-area').style.display='block';">Daftar</span></p>
+        </div>
+
+        <div id="reg-area" style="display:none;">
+            <h3>Create Account</h3>
+            <input type="text" id="regName" placeholder="Full Name">
+            <input type="email" id="regEmail" placeholder="Email">
+            <input type="password" id="regPass" placeholder="Password">
+            <button class="btn-auth" onclick="handleRegister()">DAFTAR</button>
+            <p style="margin-top:20px; font-size:13px;">Sudah punya akun? <span style="color:var(--primary); cursor:pointer;" onclick="location.reload();">Login</span></p>
+        </div>
+    </div>
+    <script type="module" src="app.js"></script>
+</body>
+</html>

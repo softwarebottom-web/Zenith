@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal | Zenith Asset</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body class="dashboard-container">
+
+    <aside class="sidebar">
+        <div class="logo" style="margin-bottom: 40px;">ZENITH<span>ASSET</span></div>
+        <nav style="display:flex; flex-direction:column; gap:10px;">
+            <button onclick="switchTab('id-card')" style="padding:15px; border-radius:10px; background:none; border:none; color:white; text-align:left; cursor:pointer;">Dashboard</button>
+            <button onclick="switchTab('settings')" style="padding:15px; border-radius:10px; background:none; border:none; color:white; text-align:left; cursor:pointer;">Settings</button>
+            <button onclick="logout()" style="padding:15px; color:red; background:none; border:none; text-align:left; margin-top:50px; cursor:pointer;">Logout</button>
+        </nav>
+    </aside>
+
+    <main class="main-portal">
+        <section id="tab-id-card">
+            <h1>Halo, <span id="userNameDisplay" class="cyan">Trader</span></h1>
+            <div style="margin-top:30px; background:#0d0d0d; padding:30px; border-radius:20px; border:1px solid #1a1a1a;">
+                <p style="color:#555; margin-bottom:5px;">MEMBER ID</p>
+                <h2 id="memberIDDisplay" style="letter-spacing:2px;">ZNTH-XXXXX</h2>
+                <div style="margin-top:20px; padding:5px 15px; background:var(--primary); color:black; display:inline-block; border-radius:5px; font-weight:bold; font-size:12px;" id="userRoleDisplay">
+                    NEWBIE
+                </div>
+            </div>
+        </section>
+
+        <section id="tab-settings" style="display:none">
+            <h1>Account Settings</h1>
+            <div style="margin-top:30px;">
+                <label>ID Account Anda:</label>
+                <input type="text" id="myAccountID" readonly style="margin-top:10px;">
+                <button onclick="copyID()" class="btn-cta" style="margin-top:10px;">Salin ID</button>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+    <script>
+        function switchTab(id) {
+            document.getElementById('tab-id-card').style.display = id === 'id-card' ? 'block' : 'none';
+            document.getElementById('tab-settings').style.display = id === 'settings' ? 'block' : 'none';
+        }
+        function copyID() {
+            const input = document.getElementById('myAccountID');
+            input.select();
+            navigator.clipboard.writeText(input.value);
+            alert("ID Berhasil disalin!");
+        }
+    </script>
+</body>
+</html>
